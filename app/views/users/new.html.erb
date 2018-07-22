@@ -1,0 +1,35 @@
+<h1 class="ml-4">Sign Up</h1>
+<div class="container-fluid bg-white ml-2 mt-3">
+  <%= form_for @user do |f| %>
+    <% if @user.errors.any? %>
+      <p>
+        <%= @user.errors.full_messages.join(', ') %>
+      </p>
+    <% end %>
+
+    <div class="form-group mr-3">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+
+    <div class="form-group mr-3">
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control'%>
+    </div>
+
+    <div class="form-group mr-3">
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+    </div>
+
+    <div class="form-group mr-3">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit "Sign Up", class: 'btn btn-outline-primary' %>
+    </div>
+  <% end %>
+</div>
+
