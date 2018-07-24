@@ -33,6 +33,7 @@ gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 gem 'popper_js', '~> 1.12.9'
 gem 'turbolinks'
+gem 'validates_timeliness', '~> 5.0.0.alpha2'
 
 
 # Use ActiveStorage variant

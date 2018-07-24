@@ -14,6 +14,15 @@ class UsersController < ApplicationController
     end
   end
 
+  # user dashboard
+  def show 
+    # params[:id] == current_user.id 
+    # @user = User.find(params[:id])
+    # @user = current_user
+    # PUT VARIABLES ACCESSIBLE TO THE VIEW HERE
+    
+  end
+
   private
   def user_params
     params.require(:user).permit(

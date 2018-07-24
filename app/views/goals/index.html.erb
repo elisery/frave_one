@@ -1,0 +1,16 @@
+<div class="h1 ml-3 mt-2">
+  <h1>Goals</h1>
+</div>
+
+<div class="container-fluid">
+  <ul class="list-group">
+    <% @goals.each do |goal| %>
+      <li class="list-group-item">
+        <%= link_to(
+          goal.title,
+          goal_path(goal.id)
+        ) %>
+      </li>
+    <% end %>
+  </ul>
+</div>
