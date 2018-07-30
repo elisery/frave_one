@@ -1,2 +1,53 @@
-<%= @goal.title %>
-<%= @goal.amount %>
+<div class="container-fluid">
+  <h1 class="ml-5"><%= @goal.title %>      <%= @goal.amount %></h1>
+  <h5 class="ml-5">Total saved: <%= @transactions_count %></h5>
+</div>
+
+
+<div class="container mt-5">
+  <h2 class="mb-5">Streams of $$</h2>
+
+  <%= form_for [@goal, @transaction] do |f| %>
+  <div class="col-auto mb-3">
+    <%= f.submit value:"+ Transaction", class:"btn btn-primary" %>
+  </div>  
+  <div class="form-row">
+    <% if @transaction.errors.present? %>
+      <p>
+        <%= @transaction.errors.full_messages.join(', ') %>
+      </p>
+    <% end %>
+    <div class="col-4">
+      <%= f.text_field(:title, class:"form-control", placeholder:"What did you save on?") %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field(:amount, class:"form-control", placeholder:"How much?") %>
+    </div>
+    <div class="col-auto mt-2">
+      <%= f.date_select :created_at %>
+    </div>
+  </div>
+  <% end %>
+
+  <section class="transaction-list mt-5">
+    <table class="table table-borderless">
+      <tbody>
+        <% @transactions.each do |transaction| %>
+        <tr>
+          <th scope="row"></th>
+            <td>
+              <%= transaction.title %>
+            </td>  
+            <td>
+              <%= transaction.amount %> 
+            </td>
+            <td>
+              <%= transaction.created_at.strftime("%B %d, %Y") %>
+            </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </section>
+</div>
+

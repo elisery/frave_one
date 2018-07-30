@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   resource :session, only:[:new, :create, :destroy]
 
   # Goals
-  resources :goals
+  resources :goals do 
+    # Transactions
+    resources :transactions, only:[:new, :create, :destroy]
+  end
 
 end
