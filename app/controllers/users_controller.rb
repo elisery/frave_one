@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id 
-      redirect_to home_path # THIS CHANGES TO DASHBOARD PATH
+      redirect_to dashboard_path # THIS CHANGES TO DASHBOARD PATH
     else
       render :new 
     end
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   def show 
     # params[:id] == current_user.id 
     # @user = User.find(params[:id])
-    # @user = current_user
+    @user = current_user
     # PUT VARIABLES ACCESSIBLE TO THE VIEW HERE
     
   end

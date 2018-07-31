@@ -34,10 +34,14 @@ super_user = User.create(
   )
 end
 
+users = User.all 
+puts Cowsay.say "Created #{users.count} users", :tux
+
 100.times do 
   g = Goal.create(
     title: Faker::Vehicle.make_and_model,
     amount: rand(500...5000),
+    user: users.sample,
     end_date: Faker::Time.forward(300, :morning) 
   )
   if g.valid?
@@ -51,14 +55,13 @@ end
   end
 end
 
-users = User.all 
+
 goals = Goal.all 
 transactions = Transaction.all 
 
-puts Cowsay.say "Created #{users.count} users", :tux
+
 puts Cowsay.say "Created #{goals.count} goals", :ren
 puts Cowsay.say "Created #{transactions.count} transactions", :kitty
 
 # ADD FAKER DATA FOR OTHER MODELS
-
 puts "Login with #{super_user.email} and password of '#{PASSWORD}'"
