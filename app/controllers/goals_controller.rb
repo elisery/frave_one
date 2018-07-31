@@ -1,6 +1,6 @@
 class GoalsController < ApplicationController
   before_action :find_goal, only: [:show, :edit, :update, :destroy]
-  after_create :set_milestones
+  # after_create :set_milestones
 
   def new
   end

@@ -1,7 +1,9 @@
 <div class="h1 ml-3 mt-2">
   <h1>Goals</h1>
 </div>
-
+<div class="container mt-3 mb-4">
+  <%= link_to("Set New Goal", new_goal_path) %>
+</div>
 <div class="container-fluid">
   <ul class="list-group">
     <% @goals.each do |goal| %>
