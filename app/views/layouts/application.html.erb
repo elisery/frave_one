@@ -15,15 +15,18 @@
       <div class="nav navbar-nav ml-auto">
         <ul class="nav justify-content-end">
           <li class="nav-item">
-            <a class="nav-link pr-1" href="/">About</a>
+            <a class="nav-link pr-1" href="/">How it Works</a>
           </li>
           <li class="nav-item pl-1 pr-2">
-            <a class="nav-link" href="/">Contact</a>
+            <a class="nav-link" href="/">Set a Goal</a>
+          </li>
+          <li class="nav-item pl-1 pr-2">
+            <a class="nav-link" href="/">News</a>
           </li>
           <li class="nav-item">
             <% if current_user.present? %>
               <li class="nav-item mt-2">
-                <span><%= current_user.first_name %></span>
+                <span>Hi <%= current_user.first_name %></span>
               </li>
               <li class="nav-item">
                 <%= link_to(
