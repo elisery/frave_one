@@ -19,5 +19,7 @@ Rails.application.routes.draw do
     # Transactions
     resources :transactions, only:[:new, :create, :destroy]
   end
+  # SHOULD REWARDS be nested in goal?
+  resources :rewards
 
 end
