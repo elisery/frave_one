@@ -1,0 +1,6 @@
+<%= simple_form_for(@goal) do |f| %>
+  <%= f.input :title, placeholder: "What are you saving for?", label: "Name your goal" %>
+  <%= f.input :amount, placeholder: "How much will it be?", label: "Cost it out" %>
+  <%= f.input :end_date, as: :date, html5: true, label: "What's your deadline" %>
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>

@@ -55,6 +55,7 @@ GEM
       sass (>= 3.5.2)
     builder (3.2.3)
     byebug (10.0.2)
+    cancancan (2.2.0)
     chartkick (2.3.5)
     coderay (1.1.2)
     coffee-rails (4.2.2)
@@ -205,6 +206,7 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.1.1)
   byebug
+  cancancan
   chartkick
   coffee-rails (~> 4.2)
   cowsay

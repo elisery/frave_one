@@ -1,6 +1,24 @@
 <div class="container-fluid">
   <h1 class="ml-5"><%= @goal.title %>      <%= @goal.amount %></h1>
   <h5 class="ml-5">Total saved: <%= @transactions_count %></h5>
+  <% if user_signed_in? %>
+    <% if can?(:edit, @goal) %>
+      <p>
+        <%= link_to 'Edit', edit_goal_path(@goal) %>
+      </p>
+    <% end %>
+    <% if can?(:delete, @goal) %>
+      <p>
+        <%= link_to('Delete', 
+          goal_path(@goal),
+          method: :delete,
+          data: {
+            confirm: "Are you sure?"
+          }
+        ) %>
+      </p>
+    <% end %>
+  <% end %>
 </div>
 
 <div>

@@ -1,7 +1,7 @@
 <% link_to 'Dashboard', dashboard_path(current_user) %>
 
 <div>
-  <h5>This is the user dashboard</h5>
+  <h5>Dashboard</h5>
   <%#= @user.id %><%#= @user.first_name %>
 </div>
  
@@ -11,6 +11,7 @@
       <div class="card-body">
         <p>Update Transactions Section</p>
         <!--Link to Goal index?-->
+        <%= link_to("Update Your Savings Streams", goals_path) %>
         <!--Goal index shows list of links of  goals-->
         <!--Indiv Goal will show list of transactions-->
       </div>
@@ -35,6 +36,7 @@
       <div class="card-body">
         <p>Rewards Section</p>
         <!--Link to rewards index-->
+        <%= link_to("Rewards", rewards_path) %>
         <!--Index links to reward show-->
         <!--Show page shows reward level, link to edit, link to assoc. goal -->
       </div>
@@ -45,6 +47,7 @@
       <div class="card-body">
         <p>Goal Setting Section</p>
         <!--Link to goal new-->
+        <%= link_to("Start a NEW Goal", new_goal_path) %>
         <!--Goal new.save renders indiv goal show -->
         <!--Indiv goal shows list of transactions plus graph for that specific goal-->
         <!--Indiv goal has link to new reward if not created or reward page-->

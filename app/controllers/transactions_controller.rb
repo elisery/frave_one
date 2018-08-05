@@ -1,5 +1,5 @@
 class TransactionsController < ApplicationController
-
+  before_action :authenticate_user!
   def create
     @goal = Goal.find params[:goal_id]
     @transaction = Transaction.new transaction_params
