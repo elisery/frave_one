@@ -2,10 +2,10 @@
 
 PASSWORD = "supersecret"
 
-User.delete_all
 Transaction.delete_all
 Goal.delete_all
-Reward.delete_all
+User.delete_all
+# Reward.delete_all
 # DELETE OTHER FAKER DATA
 
 super_user = User.create(
@@ -31,7 +31,7 @@ end
 users = User.all 
 puts Cowsay.say "Created #{users.count} users", :tux
 
-100.times do 
+30.times do 
   g = Goal.create(
     title: Faker::Vehicle.make_and_model,
     amount: rand(500...5000),
@@ -39,10 +39,11 @@ puts Cowsay.say "Created #{users.count} users", :tux
     end_date: Faker::Time.forward(300, :morning) 
   )
   if g.valid?
-    rand(3..50).times do
+    rand(3..20).times do
       Transaction.create(
         title: Faker::Commerce.product_name,
         amount: Faker::Commerce.price,
+        created_at: Faker::Time.backward(100, :morning),
         goal: g
       )
     end

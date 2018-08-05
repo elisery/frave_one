@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id 
+      flash[:success] = "Thanks for signing up #{user.first_name}!"
       redirect_to dashboard_path # THIS CHANGES TO DASHBOARD PATH
     else
       render :new 
@@ -20,7 +21,7 @@ class UsersController < ApplicationController
     # @user = User.find(params[:id])
     @user = current_user
     # PUT VARIABLES ACCESSIBLE TO THE VIEW HERE
-    
+    @goals = @user.goals.all
   end
 
   private

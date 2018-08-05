@@ -3,28 +3,24 @@
   <h5 class="ml-5">Total saved: <%= @transactions_count %></h5>
 </div>
 
+<div>
+  <%= line_chart @goal.transactions.group_by_month(:created_at).sum(:amount) %>
+</div>
 
 <div class="container mt-5">
   <h2 class="mb-5">Streams of $$</h2>
 
-  <%= form_for [@goal, @transaction] do |f| %>
-  <div class="col-auto mb-3">
-    <%= f.submit value:"+ Transaction", class:"btn btn-primary" %>
-  </div>  
+  <%= simple_form_for [@goal, @transaction] do |f| %>
+    <%= f.submit class:"btn btn-primary col-auto mb-3" %>
   <div class="form-row">
-    <% if @transaction.errors.present? %>
-      <p>
-        <%= @transaction.errors.full_messages.join(', ') %>
-      </p>
-    <% end %>
     <div class="col-4">
-      <%= f.text_field(:title, class:"form-control", placeholder:"What did you save on?") %>
+      <%= f.input :title, placeholder: "What did you save on?", label: false %>
     </div>
     <div class="col-4">
-      <%= f.text_field(:amount, class:"form-control", placeholder:"How much?") %>
+      <%= f.input :amount, placeholder: "How much?", label: false %>
     </div>
-    <div class="col-auto mt-2">
-      <%= f.date_select :created_at %>
+    <div class="col-auto">
+      <%= f.input :created_at, as: :date, html5: true, label: false %>
     </div>
   </div>
   <% end %>
@@ -35,7 +31,7 @@
         <% @transactions.each do |transaction| %>
         <tr>
           <th scope="row"></th>
-            <td>
+            <td >
               <%= transaction.title %>
             </td>  
             <td>

@@ -20,7 +20,10 @@
     <div class="card">
       <div class="card-body">
         <p>Graph goes here</p>
-        <!--Should be all transactions for all goals-->
+        <!--Should be all transactions for all goals per goal-->
+        <% if current_user %>
+          <%= column_chart current_user&.goals.goal_totals %>
+        <% end %>
       </div>
     </div>
   </div>

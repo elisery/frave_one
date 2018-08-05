@@ -6,8 +6,8 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email])
     if user&.authenticate(params[:session][:password])
       session[:user_id] = user.id 
-      flash[:success] = "Thanks for signing up #{user.first_name}!"
-      redirect_to home_path # THIS CHANGES TO DASHBOARD
+      flash[:success] = "Thanks for signing in #{user.first_name}!"
+      redirect_to dashboard_path # THIS CHANGES TO DASHBOARD
     else
       flash[:danger] = "Invalid email or password"
       redirect_to new_session_path

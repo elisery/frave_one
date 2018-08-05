@@ -1,5 +1,5 @@
 class GoalsController < ApplicationController
-  before_action :find_goal, only: [:show, :edit, :update, :destroy]
+  before_action :find_goal, only: [:show, :edit, :update, :destroy, :get_transactions]
   # after_create :set_milestones
 
   def new
@@ -10,7 +10,7 @@ class GoalsController < ApplicationController
 
   def index
     # render json: @goals
-    @goals = Goal.order(created_at: :desc)
+    @goals = current_user.goals.order(created_at: :desc)
   end
 
   def show
@@ -36,3 +36,10 @@ class GoalsController < ApplicationController
   end
 
 end
+
+# def self.goal_totals
+#   Goal.group("goals.id")
+#     .order("t_amount desc")
+#     .includes(:transactions)
+#     .pluck("goals.title, sum(transactions.amount) as t_amount")
+# end

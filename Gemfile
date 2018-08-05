@@ -35,6 +35,15 @@ gem 'popper_js', '~> 1.12.9'
 gem 'turbolinks'
 gem 'validates_timeliness', '~> 5.0.0.alpha2'
 
+# Simple forms
+gem 'simple_form'
+
+# Highchart and chartkick to display graphs in project
+gem 'chartkick'
+gem 'highcharts-rails'
+
+# Group data for displaying graphs
+gem 'groupdate'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
