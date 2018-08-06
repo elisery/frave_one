@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_30_213927) do
+ActiveRecord::Schema.define(version: 2018_08_06_014404) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,15 +26,13 @@ ActiveRecord::Schema.define(version: 2018_07_30_213927) do
   end
 
   create_table "rewards", force: :cascade do |t|
-    t.decimal "amount", precision: 10, scale: 2
-    t.string "indulgence"
-    t.boolean "reached", default: false
-    t.boolean "redeemed", default: false
-    t.decimal "milestone", precision: 10, scale: 2
+    t.string "title"
     t.bigint "goal_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["goal_id"], name: "index_rewards_on_goal_id"
+    t.index ["user_id"], name: "index_rewards_on_user_id"
   end
 
   create_table "transactions", force: :cascade do |t|
@@ -59,5 +57,6 @@ ActiveRecord::Schema.define(version: 2018_07_30_213927) do
 
   add_foreign_key "goals", "users"
   add_foreign_key "rewards", "goals"
+  add_foreign_key "rewards", "users"
   add_foreign_key "transactions", "goals"
 end

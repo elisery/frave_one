@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_secure_password
 
   has_many :goals, dependent: :destroy
+  has_many :rewards, dependent: :destroy
 
   validates :first_name, :last_name, presence: true
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i

@@ -29,6 +29,7 @@ class GoalsController < ApplicationController
     @transaction = Transaction.new
     @transactions = @goal.transactions.order(created_at: :desc)
     @transactions_count = @transactions.all.sum(:amount)
+    @reward = @goal.rewards.last
   end
 
   def destroy 
@@ -38,7 +39,7 @@ class GoalsController < ApplicationController
 
   private
   def goal_params
-    params.require(:goal).permit(:title, :amount, :end_date)
+    params.require(:goal).permit(:title, :amount, :end_date, :id)
   end
 
   def find_goal

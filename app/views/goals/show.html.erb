@@ -19,10 +19,15 @@
       </p>
     <% end %>
   <% end %>
+  <!-- LINK to NEW reward if no reward - link to reward if Reward set up-->
+  <%= link_to 'Rewards', goal_reward_path(@goal, @reward) %>
 </div>
 
+
 <div>
-  <%= line_chart @goal.transactions.group_by_month(:created_at).sum(:amount) %>
+  <%#= line_chart @goal.transactions.group_by_month(:created_at).sum(:amount), prefix: "$", ytitle: "Amount" %>
+  <% @sum = 0 %>
+  <%= line_chart @goal.transactions.group_by_month('transactions.created_at').sum(:amount).map { |x,y| { x => (@sum += y)} }.reduce({}, :merge) %>
 </div>
 
 <div class="container mt-5">

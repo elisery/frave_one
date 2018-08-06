@@ -1,7 +1,7 @@
 class Goal < ApplicationRecord
   belongs_to :user 
   has_many :transactions, dependent: :destroy
-  # has_many :rewards, dependent: :destroy
+  has_many :rewards, dependent: :destroy
   # has_many :rewards # limit of 4
 
   validates(:title, presence: true)

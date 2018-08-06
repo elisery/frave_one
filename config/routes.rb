@@ -18,8 +18,9 @@ Rails.application.routes.draw do
   resources :goals do 
     # Transactions
     resources :transactions, only:[:new, :create, :destroy]
+    # Rewards
+    resources :rewards
   end
   # SHOULD REWARDS be nested in goal?
-  resources :rewards
-
+  resources :rewards, shallow: true, only: [:index] 
 end

@@ -3,9 +3,9 @@
 PASSWORD = "supersecret"
 
 Transaction.delete_all
+Reward.delete_all
 Goal.delete_all
 User.delete_all
-# Reward.delete_all
 # DELETE OTHER FAKER DATA
 
 super_user = User.create(
@@ -47,16 +47,25 @@ puts Cowsay.say "Created #{users.count} users", :tux
         goal: g
       )
     end
+    1.times do
+      Reward.create(
+        title: Faker::Dessert.variety,
+        goal: g, 
+        user: users.sample
+      )
+    end
   end
 end
 
 
 goals = Goal.all 
 transactions = Transaction.all 
+rewards = Reward.all
 
 
 puts Cowsay.say "Created #{goals.count} goals", :ren
 puts Cowsay.say "Created #{transactions.count} transactions", :kitty
+puts Cowsay.say "Created #{rewards.count} rewards", :dragon
 
 # ADD FAKER DATA FOR OTHER MODELS
 puts "Login with #{super_user.email} and password of '#{PASSWORD}'"

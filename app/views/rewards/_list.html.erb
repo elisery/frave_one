@@ -1,0 +1,12 @@
+<ul>
+  <% @rewards.each do |reward| %>
+    <li>
+      <% g_id = reward.goal_id %>
+      <%= link_to(
+        reward.title, 
+        goal_reward_path(g_id, reward),
+        title: "🎉#{reward.title}"
+      ) %>
+    </li>
+  <% end %>
+</ul>
