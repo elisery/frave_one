@@ -20,7 +20,11 @@
     <% end %>
   <% end %>
   <!-- LINK to NEW reward if no reward - link to reward if Reward set up-->
-  <%= link_to 'Rewards', goal_reward_path(@goal, @reward) %>
+  <% if @reward %>
+    <%= link_to 'Rewards', goal_reward_path(@goal, @reward) %>
+  <% else %>
+    <%= link_to 'Set Up Reward', new_goal_reward_path(@goal) %>
+  <% end %>
 </div>
 
 

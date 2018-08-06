@@ -1,0 +1,2 @@
+class RewardItemsController < ApplicationController
+end

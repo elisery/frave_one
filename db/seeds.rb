@@ -49,6 +49,7 @@ puts Cowsay.say "Created #{users.count} users", :tux
     end
     1.times do
       Reward.create(
+        # title: g.title?
         title: Faker::Dessert.variety,
         goal: g, 
         user: users.sample
