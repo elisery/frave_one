@@ -23,7 +23,7 @@
         <p>Graph goes here</p>
         <!--Should be all transactions for all goals per goal-->
         <% if current_user %>
-          <%= column_chart current_user&.goals.goal_totals %>
+          <%= column_chart current_user&.goals.goal_totals, prefix: "$" %>
         <% end %>
       </div>
     </div>

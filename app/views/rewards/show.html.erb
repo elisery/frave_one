@@ -1,10 +1,29 @@
-<h2>Rewards for <%= @goal.title %></h2>
+<div class="container">
+  <h2 class="ml-3 mt-3">Rewards for <%= @goal.title %>: $<%= @goal.amount %></h2>
+  <h5 class="ml-3 mt-3">Saved: <%= @goal.transactions.all.sum(:amount) %></h5>
+</div>
 
 <div class="container">
-  <!-- how to render the form only if the form is not filled out yet?-->
   <%= render 'form' %>
 </div>
 
-<div class="container reward-list">
-  <!-- render a partial list of the rewards-->
-</div>
+<section class="container reward-list mt-4">
+  <h1>Rewards</h1>
+  <!-- render a list of the rewards-->
+  <% @reward_items.each do |reward_item| %>
+    <div class="row">
+      <div class="col-3">
+        <%= reward_item.title %>
+      </div>
+      <div class="col-3">
+        <%= reward_item.amount %>
+      </div>
+      <div class="col-3">
+        <%= reward_item.milestone %>
+      </div>
+      <div class="col-3">
+        <%= reward_item.title %>
+      </div>
+    </div>
+  <% end %>
+</section>

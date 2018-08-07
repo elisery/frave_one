@@ -2,10 +2,12 @@
   <% @rewards.each do |reward| %>
     <li>
       <% g_id = reward.goal_id %>
+      <% goal = Goal.find_by(id: g_id) %>
       <%= link_to(
-        reward.title, 
-        goal_reward_path(g_id, reward),
-        title: "🎉#{reward.title}"
+        goal.title, 
+        # goal_reward_path(g_id, reward),
+        reward_path(reward),
+        title: "🎉#{goal.title}"
       ) %>
     </li>
   <% end %>

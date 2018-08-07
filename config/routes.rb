@@ -19,12 +19,14 @@ Rails.application.routes.draw do
     # Transactions
     resources :transactions, only:[:new, :create, :destroy]
     # Rewards
-    resources :rewards do 
-      resources :reward_items, only:[:new, :create, :edit, :update]
-    end
+    # resources :rewards do 
+      # resources :reward_items, only:[:new, :create, :edit, :update]
+    # end
 
-    end
+    
   end
   # SHOULD REWARDS be nested in goal?
-  resources :rewards, shallow: true, only: [:index] 
+  resources :rewards do 
+    resources :reward_items, only:[:new, :create, :edit, :update]
+  end
 end
