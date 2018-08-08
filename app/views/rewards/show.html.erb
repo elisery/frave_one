@@ -3,10 +3,6 @@
   <h5 class="ml-3 mt-3">Saved: <%= @goal.transactions.all.sum(:amount) %></h5>
 </div>
 
-<div class="container">
-  <%= render 'form' %>
-</div>
-
 <section class="container reward-list mt-4">
   <h1>Rewards</h1>
   <!-- render a list of the rewards-->

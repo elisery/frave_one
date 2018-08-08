@@ -23,28 +23,35 @@ class RewardsController < ApplicationController
   end
 
   def new
+    @goal = Goal.find(params[:id])
     @reward = Reward.new
-    # @goal = Goal.find(params[:goal_id])
-    @goal = @reward.goal
+    # render json: @goal
+    4.times { @reward.reward_items.build }
   end
 
   def create
-    @goal = @reward.goal
-    # @goal = Goal.find(params[:goal_id])
+    @goal = Goal.find(params[:id])
+    
     @reward = Reward.new reward_params
     @reward.user = current_user
-
+    @reward.goal = @goal
+    # render json: params
+    # binding.pry
     if @reward.save
-      redirect_to goal_rewards_path(@goal)
+      redirect_to reward_path(@reward)
     else
-      render :new
+      # render :new
     end
 
   end
 
   private 
   def reward_params
-    params.require(:reward).permit(:title, :id)
+    params.require(:reward).permit(
+        :title, 
+        :id, 
+        { reward_items_attributes: [:title, :milestone, :amount, :id] }
+    )
   end
 
   def find_reward

@@ -5,82 +5,23 @@
 <!--amount-->
 <!--or indulgence name-->
 <!--redeemed boolean-->
-<%= simple_form_for [@reward, @reward_item] do |f| %>
+
+<%= simple_form_for @reward, url: "/rewards?id=#{@goal.id}" do |f| %>
+  <%= f.input :title %>
   <div class="form-row pt-5 ml-3">
-    <div class="col-3">
-      <%= f.input :title, label: "Name your reward" %>
-    </div>
-    <div class="col-3">
-      <%= f.input :amount, label: "Splurge $$ (optional)" %>
-    </div>
-    <div class="col-3">
-      <%= f.input :milestone, input_html: {value: f.object.milestone || '10'}, label: '% of Goal Reached' %>
-    </div>
-    <div class="col-auto mt-5">
-      <%= f.input :redeemed, as: :boolean, checked_value: true, unchecked_value: false, label: "Redeem" %>
-    </div>
+    <%= f.simple_fields_for :reward_items do |ri| %>
+      <div class="col-4">
+        <%= ri.input :title, label: "Name your reward" %>
+      </div>
+      <div class="col-4">
+        <%= ri.input :amount, label: "Splurge $$ (optional)" %>
+      </div>
+      <div class="col-4">
+        <%= ri.input :milestone, input_html: {value: ri.object.milestone || '10'}, label: '% of Goal Reached' %>
+      </div>
+    <% end %>
   </div>
-  <div class="col-auto ml-1">
-    <%= f.submit "Add Reward", class:"btn btn-primary col-auto" %>
-  </div>
+  <%= f.submit "Add Reward", class:"btn btn-primary col-auto" %>
 <% end %>
 
-<%= simple_form_for [@reward, @reward_item] do |f| %>
-  <div class="form-row pt-5 ml-3">
-    <div class="col-3">
-      <%= f.input :title, label: "Name your reward" %>
-    </div>
-    <div class="col-3">
-      <%= f.input :amount, label: "Splurge $$ (optional)" %>
-    </div>
-    <div class="col-3">
-      <%= f.input :milestone, input_html: {value: f.object.milestone || '25'}, label: '% of Goal Reached' %>
-    </div>
-    <div class="col-auto mt-5">
-      <%= f.input :redeemed, as: :boolean, checked_value: true, unchecked_value: false, label: "Redeem" %>
-    </div>
-  </div>
-  <div class="col-auto ml-1">
-    <%= f.submit "Add Reward", class:"btn btn-primary col-auto" %>
-  </div>
-<% end %>
 
-<%= simple_form_for [@reward, @reward_item] do |f| %>
-  <div class="form-row pt-5 ml-3">
-    <div class="col-3">
-      <%= f.input :title, label: "Name your reward" %>
-    </div>
-    <div class="col-3">
-      <%= f.input :amount, label: "Splurge $$ (optional)" %>
-    </div>
-    <div class="col-3">
-      <%= f.input :milestone, input_html: {value: f.object.milestone || '50'}, label: '% of Goal Reached' %>
-    </div>
-    <div class="col-auto mt-5">
-      <%= f.input :redeemed, as: :boolean, checked_value: true, unchecked_value: false, label: "Redeem" %>
-    </div>
-  </div>
-  <div class="col-auto ml-1">
-    <%= f.submit "Add Reward", class:"btn btn-primary col-auto" %>
-  </div>
-<% end %>
-
-<%= simple_form_for [@reward, @reward_item] do |f| %>
-  <div class="form-row pt-5 ml-3">
-    <div class="col-3">
-      <%= f.input :title, label: "Name your reward" %>
-    </div>
-    <div class="col-3">
-      <%= f.input :amount, label: "Splurge $$ (optional)" %>
-    </div>
-    <div class="col-3">
-      <%= f.input :milestone, input_html: {value: f.object.milestone || '75'}, label: '% of Goal Reached' %>
-    </div>
-    <div class="col-auto mt-5">
-      <%= f.input :redeemed, as: :boolean, checked_value: true, unchecked_value: false, label: "Redeem" %>
-    </div>
-  </div>
-  <div class="col-auto ml-1">
-    <%= f.submit "Add Reward", class:"btn btn-primary col-auto" %>
-  </div>
-<% end %>

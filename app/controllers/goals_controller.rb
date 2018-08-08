@@ -13,7 +13,7 @@ class GoalsController < ApplicationController
     
     if @goal.save
       # Automatically create a reward for a new goal
-      @goal.rewards.create(:title => @goal.title, :user => @goal.user) 
+      # @goal.rewards.create(:title => @goal.title, :user => @goal.user) 
       redirect_to goal_path(@goal)
     else
       render :new

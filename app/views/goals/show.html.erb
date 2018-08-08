@@ -24,7 +24,7 @@
     <%= link_to 'Rewards', reward_path(@reward) %>
   <% else %>
     <%#= link_to 'Set Up Reward', new_goal_reward_path(@goal) %>
-    <%#= link_to 'Set Up Reward', new_reward_path %>
+    <%= link_to 'Set Up Reward', new_reward_path(id: @goal.id) %>
   <% end %>
 </div>
 
