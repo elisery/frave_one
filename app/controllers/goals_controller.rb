@@ -23,6 +23,11 @@ class GoalsController < ApplicationController
   def index
     # render json: @goals
     @goals = current_user.goals.order(created_at: :desc)
+
+    respond_to do |format|
+      format.html { render }
+      format.json { render json: @goals }
+    end
   end
 
   def show

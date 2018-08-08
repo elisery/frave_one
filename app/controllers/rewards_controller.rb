@@ -4,6 +4,11 @@ class RewardsController < ApplicationController
   def index
     # @goal =   Goal.find(params[:goal_id])
     @rewards = current_user.rewards.order(title: :asc)
+
+    respond_to do | format |
+      format.html { render }
+      format.json { render json: @rewards }
+    end
     # binding.pry
     # render json: params
     # @rewards = Reward.all
@@ -54,7 +59,7 @@ class RewardsController < ApplicationController
     )
   end
 
-  def find_reward
+  def reward
     @reward = Reward.find(params[:id])
   end
 

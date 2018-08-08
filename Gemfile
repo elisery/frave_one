@@ -48,6 +48,9 @@ gem 'highcharts-rails'
 # Group data for displaying graphs
 gem 'groupdate'
 
+# Serializer for API
+gem 'active_model_serializers'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
