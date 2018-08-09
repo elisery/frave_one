@@ -1,7 +1,7 @@
 class Api::V1::GoalsController < Api::ApplicationController
   before_action :authenticate_user!
   def index
-    goals = Goal.order(created_at: :desc)
+    goals = current_user.goals.order(created_at: :desc)
 
     render json: goals
   end

@@ -1,5 +1,5 @@
 class GoalsController < ApplicationController
-  before_action :find_goal, only: [:show, :edit, :update, :destroy, :get_transactions]
+  before_action :find_goal, only: [:show, :edit, :update, :destroy]
   # after_create :set_milestones
   before_action :authenticate_user!
 

@@ -29,11 +29,30 @@ module FraveOne
 
     # Don't generate system test files.
     config.generators.system_tests = nil
-      config.generators do |g|
-        # don't generate helper files
-        g.helper = false
-        # don't generate coffeescript and scss files
-        g.assets = false
+    config.generators do |g|
+      # don't generate helper files
+      g.helper = false
+      # don't generate coffeescript and scss files
+      g.assets = false
+    end
+
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins 'localhost:3002', 'localhost:3001'
+        # 'origin' option specifies the domains that are allowed to make cross
+        # origin requests to our Rails server
+        resource(
+          '/api/v1/*', 
+          headers: :any, 
+          credentials: true, # allows cookies to be sent across origins or 
+          # with fetch
+          methods: [:get, :post, :delete, :patch, :put, :options]
+        )
+        # 'resource' option specifies which urls we will be allowed to perform
+        # CORS on. Above, we say that all urls that begin with "/api/v1/" are
+        # allowed.
       end
+    end
+
   end
 end

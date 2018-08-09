@@ -51,6 +51,9 @@ gem 'groupdate'
 # Serializer for API
 gem 'active_model_serializers'
 
+# For allowing CORS
+gem 'rack-cors'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
