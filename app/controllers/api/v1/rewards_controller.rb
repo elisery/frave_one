@@ -25,7 +25,6 @@ class Api::V1::RewardsController < Api::ApplicationController
         status: 422
       )
     end
-
   end
 
   def destroy
@@ -46,4 +45,5 @@ class Api::V1::RewardsController < Api::ApplicationController
     )
   end
 
+  
 end

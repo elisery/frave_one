@@ -50,6 +50,10 @@ class RewardsController < ApplicationController
 
   end
 
+  def destroy
+
+  end
+
   private 
   def reward_params
     params.require(:reward).permit(
@@ -59,7 +63,7 @@ class RewardsController < ApplicationController
     )
   end
 
-  def reward
+  def find_reward
     @reward = Reward.find(params[:id])
   end
 
