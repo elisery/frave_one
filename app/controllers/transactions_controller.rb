@@ -13,7 +13,12 @@ class TransactionsController < ApplicationController
     
   end
 
+
   def destroy
+    @transaction ||= Transaction.find params[:id]
+    @transaction.destroy
+
+    redirect_to goal_path(@transaction.goal)
   end
 
   private

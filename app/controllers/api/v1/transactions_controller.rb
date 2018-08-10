@@ -13,9 +13,14 @@ class Api::V1::TransactionsController < Api::ApplicationController
 
 
   def destroy
-    transaction = Transaction.find params[:id]
+    transaction ||= Transaction.find params[:id]
     transaction.destroy
     render json: { status: 200 }, status: 200
+  end
+
+  def show
+    transaction ||= Transaction.find params[:id]
+    render json: transaction
   end
 
   private
