@@ -3,6 +3,7 @@ class Api::V1::TransactionsController < Api::ApplicationController
 
   # NEED DEF CREATE FOR TRANSACTIONS
   def create 
+    goal ||= Goal.find params[:id]
     transaction = Transaction.new transaction_params
     transaction.goal = goal
     # transaction.user = current_user 
