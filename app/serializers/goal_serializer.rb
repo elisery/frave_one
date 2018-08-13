@@ -3,4 +3,5 @@ class GoalSerializer < ActiveModel::Serializer
   belongs_to :user
 
   has_many :transactions
+  has_many :rewards
 end
