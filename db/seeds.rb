@@ -3,10 +3,10 @@
 PASSWORD = "supersecret"
 
 Transaction.delete_all
+RewardItem.delete_all
 Reward.delete_all
 Goal.delete_all
 User.delete_all
-# DELETE OTHER FAKER DATA
 
 super_user = User.create(
   first_name: "Dany", 
@@ -16,33 +16,33 @@ super_user = User.create(
   admin: true 
 )
 
-10.times do
-  first_name = Faker::Name.first_name
-  last_name = Faker::Name.last_name
+# 10.times do
+#   first_name = Faker::Name.first_name
+#   last_name = Faker::Name.last_name
 
-  User.create(
-    first_name: "#{first_name}",
-    last_name: "#{last_name}",
-    email: "#{first_name.downcase}.#{last_name.downcase}@example.com",
-    password: PASSWORD
-  )
-end
+#   User.create(
+#     first_name: "#{first_name}",
+#     last_name: "#{last_name}",
+#     email: "#{first_name.downcase}.#{last_name.downcase}@example.com",
+#     password: PASSWORD
+#   )
+# end
 
-users = User.all 
-puts Cowsay.say "Created #{users.count} users", :tux
+# users = User.all 
+# puts Cowsay.say "Created #{users.count} users", :tux
 
-30.times do 
+1.times do 
   g = Goal.create(
-    title: Faker::Vehicle.make_and_model,
-    amount: rand(500...5000),
-    user: users.sample,
-    end_date: Faker::Time.forward(300, :morning) 
+    title: "Trip to Dublin",
+    amount: 3000.00,
+    user: super_user,
+    end_date: Faker::Time.forward(200, :morning) 
   )
   if g.valid?
-    rand(3..20).times do
+    rand(5..10).times do
       Transaction.create(
         title: Faker::Commerce.product_name,
-        amount: Faker::Commerce.price,
+        amount: rand(10.00...32.99),
         created_at: Faker::Time.backward(100, :morning),
         goal: g
       )
@@ -50,14 +50,182 @@ puts Cowsay.say "Created #{users.count} users", :tux
     1.times do
       Reward.create(
         # title: g.title?
-        title: Faker::Dessert.variety,
+        title: "#{g.title} Rewards",
         goal: g, 
-        user: users.sample
+        user: super_user,
+        reward_items_attributes: [
+          {
+            title: "Netflix Binge",
+            milestone: 10,
+            amount: 0.00
+          },
+          {
+            title: "Bath bombs",
+            milestone: 25, 
+            amount: 10.00
+          },
+          {
+            title: "Video Game Day",
+            milestone: 50,
+            amount: 0.00
+          },
+          {
+            title: "Reading weekend",
+            milestone: 75,
+            amount: 15.00
+          }
+        ]
       )
     end
   end
 end
 
+1.times do 
+  g = Goal.create(
+    title: "Furniture",
+    amount: 1500.00,
+    user: super_user,
+    end_date: Faker::Time.forward(150, :morning) 
+  )
+  if g.valid?
+    rand(5..10).times do
+      Transaction.create(
+        title: Faker::Commerce.product_name,
+        amount: rand(10.00...32.99),
+        created_at: Faker::Time.backward(100, :morning),
+        goal: g
+      )
+    end
+    1.times do
+      Reward.create(
+        # title: g.title?
+        title: "#{g.title} Rewards",
+        goal: g, 
+        user: super_user,
+        reward_items_attributes: [
+          {
+            title: "Netflix Binge",
+            milestone: 10,
+            amount: 0.00
+          },
+          {
+            title: "Bath bombs",
+            milestone: 25, 
+            amount: 10.00
+          },
+          {
+            title: "Video Game Day",
+            milestone: 50,
+            amount: 0.00
+          },
+          {
+            title: "Reading weekend",
+            milestone: 75,
+            amount: 15.00
+          }
+        ]
+      )
+    end
+  end
+end
+
+1.times do 
+  g = Goal.create(
+    title: "Bootcamp",
+    amount: 8000.00,
+    user: super_user,
+    end_date: Faker::Time.forward(280, :morning) 
+  )
+  if g.valid?
+    rand(5..10).times do
+      Transaction.create(
+        title: Faker::Commerce.product_name,
+        amount: rand(50.00...82.29),
+        created_at: Faker::Time.backward(200, :morning),
+        goal: g
+      )
+    end
+    1.times do
+      Reward.create(
+        # title: g.title?
+        title: "#{g.title} Rewards",
+        goal: g, 
+        user: super_user,
+        reward_items_attributes: [
+          {
+            title: "Netflix Binge",
+            milestone: 10,
+            amount: 0.00
+          },
+          {
+            title: "Bath bombs",
+            milestone: 25, 
+            amount: 10.00
+          },
+          {
+            title: "Video Game Day",
+            milestone: 50,
+            amount: 0.00
+          },
+          {
+            title: "Reading weekend",
+            milestone: 75,
+            amount: 15.00
+          }
+        ]
+      )
+    end
+  end
+end
+
+1.times do 
+  g = Goal.create(
+    title: "Spa Day",
+    amount: 300.00,
+    user: super_user,
+    end_date: Faker::Time.forward(50, :morning) 
+  )
+  if g.valid?
+    rand(2..6).times do
+      Transaction.create(
+        title: Faker::Commerce.product_name,
+        amount: rand(5.24...15.43),
+        created_at: Faker::Time.backward(120, :morning),
+        goal: g
+      )
+    end
+    1.times do
+      Reward.create(
+        # title: g.title?
+        title: "#{g.title} Rewards",
+        goal: g, 
+        user: super_user,
+        reward_items_attributes: [
+          {
+            title: "Netflix Binge",
+            milestone: 10,
+            amount: 0.00
+          },
+          {
+            title: "Bath bombs",
+            milestone: 25, 
+            amount: 10.00
+          },
+          {
+            title: "Wine",
+            milestone: 50,
+            amount: 15.00
+          },
+          {
+            title: "Lazy weekend",
+            milestone: 75,
+            amount: 10.00
+          }
+        ]
+      )
+    end
+  end
+end
 
 goals = Goal.all 
 transactions = Transaction.all 
@@ -68,5 +236,4 @@ puts Cowsay.say "Created #{goals.count} goals", :ren
 puts Cowsay.say "Created #{transactions.count} transactions", :kitty
 puts Cowsay.say "Created #{rewards.count} rewards", :dragon
 
-# ADD FAKER DATA FOR OTHER MODELS
 puts "Login with #{super_user.email} and password of '#{PASSWORD}'"
