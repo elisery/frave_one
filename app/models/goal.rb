@@ -27,17 +27,3 @@ class Goal < ApplicationRecord
   
 end
 
-# def self.most_purchased
-#   .group("products.id'")
-#   .order("quantity_sum desc").limit(10)
-#   .pluck("products.name, sum(line_items.quantity) as quantity_sum")
-# end
-# def all_weekly_points
-#   Week.select("weeks.week_number, sum(point_value * count) AS points")
-#       .joins(actions: :play)
-#       .where("contestant_id = ?", id)
-#       .group("weeks.id")
-#       .order("weeks.week_number")
-# end
-# > User.last.products.most_purchased
-# => [["Nsm Og Milk", 28], ["Og Bananas", 19], ["Rr Cheese Pizza", 19], ["Casa Solar Tmprn", 10], ["Og Carrots", 9], ["Olive Bar", 8], ["Atlas Blkbry", 8], ["Mixed Greens Og", 7], ["Tangerine 3 Lb", 7], ["De Lallo Pasta", 7]]
