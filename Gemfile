@@ -54,6 +54,9 @@ gem 'active_model_serializers'
 # For allowing CORS
 gem 'rack-cors'
 
+# For deploying to heroku
+gem 'rails_12factor'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
