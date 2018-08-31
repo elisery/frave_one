@@ -25,6 +25,16 @@ For development and testing, users should run both the rails server and the Reac
 * Ant Design
 * Victory Charts
 
+## In Progress
+
+* Sign up Page
+* React Native Implementation
+
+## Demo Page Login
+
+U/name: dany@dragonstone.gov
+Pass: supersecret 
+
 ## Author
 
 * Elise Yohm
