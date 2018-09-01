@@ -54,12 +54,14 @@ module FraveOne
     #     # allowed.
     #   end
     # end
-    Rails.application.config.middleware.insert_before 0, Rack::Cors do
+    config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins '*'
         resource '*', :headers => :any, :methods => [:get, :post, :patch, :options]
       end
     end
+
+    config.action_dispatch.default_headers = { 'Access-Control-Allow-Origin' => 'https://frave-react.herokuapp.com/', 'Access-Control-Request-Method' => %w{GET POST OPTIONS}.join(",")
 
   end
 end
