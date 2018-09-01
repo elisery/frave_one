@@ -36,7 +36,7 @@ module FraveOne
       g.assets = false
     end
 
-    config.middleware.insert_before 0, Rack::Cors do
+    config.middleware.insert_before ActionDispatch::Static, Rack::Cors do
       allow do
         origins 'localhost:3002', 'localhost:3001', 'frave-react.herokuapp.com', 'frave.herokuapp.com'
         # 'origin' option specifies the domains that are allowed to make cross
