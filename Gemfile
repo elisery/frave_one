@@ -52,7 +52,7 @@ gem 'groupdate'
 gem 'active_model_serializers'
 
 # For allowing CORS
-gem 'rack-cors'
+gem 'rack-cors', :require => 'rack/cors'
 
 # For deploying to heroku
 gem 'rails_12factor'
