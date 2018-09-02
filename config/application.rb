@@ -55,7 +55,7 @@ module FraveOne
     # end
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins '*'
+        origins 'frave-react.herokuapp.com'
         resource( 
           '*', 
           headers: :any, 
