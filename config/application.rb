@@ -46,7 +46,7 @@ module FraveOne
           '/api/v1/*', 
           headers: :any, 
           credentials: true, # allows cookies to be sent across origins or with fetch
-          methods: [:get, :post, :delete, :patch, :put, :options, :head]
+          methods: [:get, :post, :delete, :patch, :put, :options]
         )
         # 'resource' option specifies which urls we will be allowed to perform
         # CORS on. Above, we say that all urls that begin with "/api/v1/" are
