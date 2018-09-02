@@ -62,7 +62,6 @@ module FraveOne
     # end
 
     config.action_dispatch.default_headers = { 'Access-Control-Allow-Origin' => 'https://frave-react.herokuapp.com', 'Access-Control-Request-Method' => %w{GET POST OPTIONS}.join(",") }
-    config.action_dispatch.default_headers = { 'Access-Control-Allow-Origin' => 'https://cors-anywhere.herokuapp.com/https://frave-react.herokuapp.com', 'Access-Control-Request-Method' => %w{GET POST OPTIONS}.join(",") }
 
   end
 end
