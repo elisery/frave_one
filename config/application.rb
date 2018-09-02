@@ -39,7 +39,7 @@ module FraveOne
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'frave-react.herokuapp.com', 'frave.herokuapp.com'
+        origins 'frave-react.herokuapp.com'
         # 'origin' option specifies the domains that are allowed to make cross
         # origin requests to our Rails server
         resource(
@@ -62,8 +62,6 @@ module FraveOne
     # end
 
     config.action_dispatch.default_headers = { 'Access-Control-Allow-Origin' => 'https://frave-react.herokuapp.com', 'Access-Control-Request-Method' => %w{GET POST OPTIONS}.join(",") }
-    config.action_dispatch.default_headers = { 'Access-Control-Allow-Origin' => 'https://frave.herokuapp.com', 'Access-Control-Request-Method' => %w{GET POST OPTIONS}.join(",") }
-
 
   end
 end
