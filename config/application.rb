@@ -56,7 +56,12 @@ module FraveOne
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins '*'
-        resource '*', :headers => :any, :methods => [:get, :post, :delete, :patch, :put, :options]
+        resource( 
+          '*', 
+          headers: :any, 
+          credentials: true,
+          methods: [:get, :post, :delete, :patch, :put, :options]
+        )
       end
     end
 
