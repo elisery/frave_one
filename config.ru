@@ -8,8 +8,8 @@ use Rack::Cors do
 
   # allow all origins in development
   allow do
-    origins '*'
-    resource '*', 
+    origins 'frave-react.herokuapp.com'
+    resource '/api/v1/*', 
         :headers => :any, 
         :methods => [:get, :post, :delete, :patch, :put, :options]
   end
