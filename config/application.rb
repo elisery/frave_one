@@ -37,33 +37,28 @@ module FraveOne
       g.assets = false
     end
 
-    # config.middleware.insert_before 0, Rack::Cors do
-    #   allow do
-    #     origins 'localhost:3002', 'localhost:3001', 'frave-react.herokuapp.com', 'frave.herokuapp.com'
-    #     # 'origin' option specifies the domains that are allowed to make cross
-    #     # origin requests to our Rails server
-    #     resource(
-    #       '/api/v1/*', 
-    #       headers: :any, 
-    #       credentials: true, # allows cookies to be sent across origins or with fetch
-    #       methods: [:get, :post, :delete, :patch, :put, :options]
-    #     )
-    #     # 'resource' option specifies which urls we will be allowed to perform
-    #     # CORS on. Above, we say that all urls that begin with "/api/v1/" are
-    #     # allowed.
-    #   end
-    # end
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'frave-react.herokuapp.com'
-        resource( 
-          '*', 
+        origins 'localhost:3002', 'localhost:3001', 'frave-react.herokuapp.com', 'frave.herokuapp.com'
+        # 'origin' option specifies the domains that are allowed to make cross
+        # origin requests to our Rails server
+        resource(
+          '/api/v1/*', 
           headers: :any, 
-          credentials: true,
+          credentials: true, # allows cookies to be sent across origins or with fetch
           methods: [:get, :post, :delete, :patch, :put, :options]
         )
+        # 'resource' option specifies which urls we will be allowed to perform
+        # CORS on. Above, we say that all urls that begin with "/api/v1/" are
+        # allowed.
       end
     end
+    # config.middleware.insert_before 0, Rack::Cors do
+    #   allow do
+    #     origins '*'
+    #     resource '*', :headers => :any, :methods => [:get, :post, :delete, :patch, :put, :options]
+    #   end
+    # end
 
     config.action_dispatch.default_headers = { 'Access-Control-Allow-Origin' => 'https://frave-react.herokuapp.com', 'Access-Control-Request-Method' => %w{GET POST OPTIONS}.join(",") }
 
