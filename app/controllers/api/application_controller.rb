@@ -6,26 +6,26 @@ class Api::ApplicationController < ApplicationController
 
   skip_before_action :verify_authenticity_token
 
-  before_filter :cors_preflight_check
-   after_filter :cors_set_access_control_headers
+  # before_filter :cors_preflight_check
+  #  after_filter :cors_set_access_control_headers
 
-   def cors_set_access_control_headers
-     #headers['Access-Control-Allow-Origin'] = '*'
-     headers['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS, PATCH, DELETE'
-     headers['Access-Control-Request-Method'] = '*'
-     headers['Access-Control-Max-Age'] = "1728000"
-   end
+  #  def cors_set_access_control_headers
+  #    #headers['Access-Control-Allow-Origin'] = '*'
+  #    headers['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS, PATCH, DELETE'
+  #    headers['Access-Control-Request-Method'] = '*'
+  #    headers['Access-Control-Max-Age'] = "1728000"
+  #  end
 
-  def cors_preflight_check
-    if request.method.to_s.downcase == "options"
-     #headers['Access-Control-Allow-Origin'] = '*'
-     headers['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS, PATCH, DELETE'
-     headers['Access-Control-Request-Method'] = '*'
-     headers['Access-Control-Allow-Headers'] = 'X-Requested-With, X-Prototype-Version, Content-Type'
-     headers['Access-Control-Max-Age'] = '1728000'
-     render :json => {}
-    end
-   end
+  # def cors_preflight_check
+  #   if request.method.to_s.downcase == "options"
+  #    #headers['Access-Control-Allow-Origin'] = '*'
+  #    headers['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS, PATCH, DELETE'
+  #    headers['Access-Control-Request-Method'] = '*'
+  #    headers['Access-Control-Allow-Headers'] = 'X-Requested-With, X-Prototype-Version, Content-Type'
+  #    headers['Access-Control-Max-Age'] = '1728000'
+  #    render :json => {}
+  #   end
+  #  end
 
 
   def not_found
