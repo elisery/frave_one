@@ -45,7 +45,8 @@ module FraveOne
         resource(
           '/api/v1/*', 
           headers: :any, 
-          credentials: true, # allows cookies to be sent across origins or with fetch
+          credentials: true, # allows cookies to be sent across origins or 
+          # with fetch
           methods: [:get, :post, :delete, :patch, :put, :options]
         )
         # 'resource' option specifies which urls we will be allowed to perform
