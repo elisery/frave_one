@@ -3,6 +3,7 @@
 require_relative 'config/environment'
 
 run Rails.application
+require 'rack/cors'
 use Rack::Cors do
   allow do
     origins 'frave-react.herokuapp.com', '127.0.0.1:3000',
