@@ -60,6 +60,8 @@ gem 'rails_12factor'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
+gem 'foreman'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
