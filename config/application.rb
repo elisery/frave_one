@@ -63,13 +63,15 @@ module FraveOne
     #   end
     # end
 
+
+
     config.action_dispatch.default_headers = { 
-      'Access-Control-Allow-Origin' => 'https://frave-react.herokuapp.com', 
+      'Access-Control-Allow-Origin' => 'https://frave-react.herokuapp.com',
       'Access-Control-Allow-Methods' => %w{GET HEAD POST OPTIONS}.join(","),
       'Access-Control-Request-Method' => %w{GET HEAD POST OPTIONS}.join(","),
-      'Access-Control-Allow-Headers' => 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+      'Access-Control-Allow-Headers' => 'Origin, X-Requested-With, Content-Type, Accept, Authorization',
+      'Access-Control-Allow-Credentials' => 'true'
     }
 
   end
 end
-# 'localhost:3002', 'localhost:3001', 
