@@ -39,12 +39,12 @@ module FraveOne
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'frave-react.herokuapp.com'
+        origins 'https://frave-react.herokuapp.com'
         # 'origin' option specifies the domains that are allowed to make cross
         # origin requests to our Rails server
         resource(
           '/api/v1/*', 
-          headers: 'Origin, X-Requested-With, Content-Type, Accept', 
+          headers: 'Origin, X-Requested-With, Content-Type, Accept x-http-method-override Authorization', 
           credentials: true, # allows cookies to be sent across origins or 
           # with fetch
           methods: [:get, :post, :delete, :patch, :put, :options, :head],
