@@ -44,7 +44,7 @@ module FraveOne
         # origin requests to our Rails server
         resource(
           '/api/v1/*', 
-          headers: 'Content-Type', 
+          headers: 'Origin, X-Requested-With, Content-Type, Accept', 
           credentials: true, # allows cookies to be sent across origins or 
           # with fetch
           methods: [:get, :post, :delete, :patch, :put, :options, :head],
