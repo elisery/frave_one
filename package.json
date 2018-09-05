@@ -1,22 +1,12 @@
 {
   "name": "frave_one",
+  "engines": {
+    "node": "8.11.2"
+  },
   "version": "1.0.0",
-  "description": "<img src=\"app/assets/images/Main_image.png\" width=\"200\" />",
-  "main": "index.js",
-  "directories": {
-    "lib": "lib"
-  },
   "scripts": {
-    "postinstall": "cd client && npm install"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/elisery/frave_one.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/elisery/frave_one/issues"
-  },
-  "homepage": "https://github.com/elisery/frave_one#readme"
+    "build": "cd client && npm install && npm run build && cd ..",
+    "deploy": "cp -a client/build/. public/",
+    "postinstall": "npm run build && npm run deploy && echo 'Client built!'"
+  }
 }
