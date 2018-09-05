@@ -44,7 +44,7 @@ module FraveOne
         # origin requests to our Rails server
         resource(
           '/api/v1/*', 
-          headers: 'Origin, X-Requested-With, Content-Type, Accept x-http-method-override Authorization', 
+          headers: 'Origin, X-Requested-With, Content-Type, Accept', 
           credentials: true, # allows cookies to be sent across origins or 
           # with fetch
           methods: [:get, :post, :delete, :patch, :put, :options, :head],
@@ -58,7 +58,7 @@ module FraveOne
     end
     # config.middleware.insert_before 0, Rack::Cors do
     #   allow do
-    #     origins 'frave-react.herokuapp.com'
+    #     origins '*'
     #     resource '*', :headers => :any, :methods => [:get, :post, :patch, :options]
     #   end
     # end
@@ -66,7 +66,7 @@ module FraveOne
 
 
     # config.action_dispatch.default_headers = { 
-    #   'Access-Control-Allow-Origin' => 'frave-react.herokuapp.com',
+    #   'Access-Control-Allow-Origin' => 'https://frave-react.herokuapp.com',
     #   # 'Access-Control-Allow-Methods' => %w{GET HEAD POST PUT OPTIONS}.join(","),
     #   'Access-Control-Request-Method' => %w{GET HEAD POST PUT OPTIONS}.join(","),
     #   # 'Access-Control-Allow-Headers' => 'Content-Type',
