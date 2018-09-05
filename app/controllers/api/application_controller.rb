@@ -6,11 +6,11 @@ class Api::ApplicationController < ApplicationController
 
   skip_before_action :verify_authenticity_token
 
-  before_filter :set_access
+  # before_filter :set_access
 
-  def set_access
-    @response.headers["Access-Control-Allow-Origin"] = "frave-react.herokuapp.com"
-  end
+  # def set_access
+  #   @response.headers["Access-Control-Allow-Origin"] = "frave-react.herokuapp.com"
+  # end
 
   def not_found
     render(
