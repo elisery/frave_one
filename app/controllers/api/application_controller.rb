@@ -27,10 +27,6 @@ class Api::ApplicationController < ApplicationController
 
   def record_not_found(error)
     # binding.pry
-    # This will pause your program when it encounters the line above.
-    # It will open a "pry" session at this location allowing you to 
-    # look at and use all the variables in scope.
-    # Requires the gem 'pry'
     render(
       status: 404,
       json: {
