@@ -11,11 +11,11 @@ When setting up a new goal, users set up customized rewards that they can redeem
 
 Frave-One is built to be used with the front end React Client: Frave-React.
 
-For development and testing, users should run both the rails server and the React client. 
+For development and testing, users can run both the rails server and the React client. 
 
 ## Prerequisites
 
-1. Ruby on Rails v. 4 or higher
+1. Ruby on Rails v. 5 or higher
 2. NPM
 
 ### Built With
@@ -32,6 +32,7 @@ For development and testing, users should run both the rails server and the Reac
 
 ## Demo Page Login
 
+URL: https://frave.herokuapp.com/
 U/name: dany@dragonstone.gov
 Pass: supersecret 
 

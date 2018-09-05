@@ -51,27 +51,9 @@ module FraveOne
           expose: ['access-token', 'expiry', 'token-type', 'uid', 'client'],
              max_age: 0
         )
-        # 'resource' option specifies which urls we will be allowed to perform
-        # CORS on. Above, we say that all urls that begin with "/api/v1/" are
-        # allowed.
+        
       end
     end
-    # config.middleware.insert_before 0, Rack::Cors do
-    #   allow do
-    #     origins '*'
-    #     resource '*', :headers => :any, :methods => [:get, :post, :patch, :options]
-    #   end
-    # end
-
-
-
-    # config.action_dispatch.default_headers = { 
-    #   'Access-Control-Allow-Origin' => 'https://frave-react.herokuapp.com',
-    #   # 'Access-Control-Allow-Methods' => %w{GET HEAD POST PUT OPTIONS}.join(","),
-    #   'Access-Control-Request-Method' => %w{GET HEAD POST PUT OPTIONS}.join(","),
-    #   # 'Access-Control-Allow-Headers' => 'Content-Type',
-    #   # 'Access-Control-Allow-Credentials' => 'true'
-    # }
 
   end
 end
