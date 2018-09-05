@@ -69,7 +69,7 @@ module FraveOne
       'Access-Control-Allow-Origin' => 'https://frave-react.herokuapp.com',
       'Access-Control-Allow-Methods' => %w{GET HEAD POST PUT OPTIONS}.join(","),
       'Access-Control-Request-Method' => %w{GET HEAD POST PUT OPTIONS}.join(","),
-      'Access-Control-Allow-Headers' => '*',
+      'Access-Control-Allow-Headers' => 'Content-Type',
       'Access-Control-Allow-Credentials' => 'true'
     }
 
