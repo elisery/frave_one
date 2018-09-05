@@ -37,36 +37,36 @@ module FraveOne
       g.assets = false
     end
 
-    # config.middleware.insert_before 0, Rack::Cors do
-    #   allow do
-    #     origins 'frave-react.herokuapp.com'
-    #     # 'origin' option specifies the domains that are allowed to make cross
-    #     # origin requests to our Rails server
-    #     resource(
-    #       '/api/v1/*', 
-    #       headers: 'Origin, X-Requested-With, Content-Type, Accept x-http-method-override Authorization', 
-    #       credentials: true, # allows cookies to be sent across origins or 
-    #       # with fetch
-    #       methods: [:get, :post, :delete, :patch, :put, :options, :head],
-    #       expose: ['access-token', 'expiry', 'token-type', 'uid', 'client'],
-    #          max_age: 0
-    #     )
-    #     # 'resource' option specifies which urls we will be allowed to perform
-    #     # CORS on. Above, we say that all urls that begin with "/api/v1/" are
-    #     # allowed.
-    #   end
-    # end
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins 'frave-react.herokuapp.com'
-        resource '*', :headers => :any, :methods => [:get, :post, :patch, :options]
+        # 'origin' option specifies the domains that are allowed to make cross
+        # origin requests to our Rails server
+        resource(
+          '/api/v1/*', 
+          headers: 'Origin, X-Requested-With, Content-Type, Accept x-http-method-override Authorization', 
+          credentials: true, # allows cookies to be sent across origins or 
+          # with fetch
+          methods: [:get, :post, :delete, :patch, :put, :options, :head],
+          expose: ['access-token', 'expiry', 'token-type', 'uid', 'client'],
+             max_age: 0
+        )
+        # 'resource' option specifies which urls we will be allowed to perform
+        # CORS on. Above, we say that all urls that begin with "/api/v1/" are
+        # allowed.
       end
     end
+    # config.middleware.insert_before 0, Rack::Cors do
+    #   allow do
+    #     origins 'frave-react.herokuapp.com'
+    #     resource '*', :headers => :any, :methods => [:get, :post, :patch, :options]
+    #   end
+    # end
 
 
 
     # config.action_dispatch.default_headers = { 
-    #   'Access-Control-Allow-Origin' => 'https://frave-react.herokuapp.com',
+    #   'Access-Control-Allow-Origin' => 'frave-react.herokuapp.com',
     #   # 'Access-Control-Allow-Methods' => %w{GET HEAD POST PUT OPTIONS}.join(","),
     #   'Access-Control-Request-Method' => %w{GET HEAD POST PUT OPTIONS}.join(","),
     #   # 'Access-Control-Allow-Headers' => 'Content-Type',
