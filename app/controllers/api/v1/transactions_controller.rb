@@ -30,7 +30,7 @@ class Api::V1::TransactionsController < Api::ApplicationController
   end
 
   def transaction_params
-    params.require(:transaction).permit(:id, :title, :amount, :goal_id)
+    params.require(:transaction).permit(:id, :title, :amount, :goal_id, :updated_at)
   end
   
 end
