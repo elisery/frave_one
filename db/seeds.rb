@@ -39,8 +39,8 @@ super_user = User.create(
     end_date: Faker::Time.forward(200, :morning) 
   )
   if g.valid?
-    t = Faker::Time.backward(100, :morning)
     rand(5..10).times do
+      t = Faker::Time.backward(100, :morning)
       Transaction.create(
         title: Faker::Commerce.product_name,
         amount: rand(10.00...32.99),
@@ -91,10 +91,12 @@ end
   )
   if g.valid?
     rand(5..10).times do
+      t = Faker::Time.backward(100, :morning)
       Transaction.create(
         title: Faker::Commerce.product_name,
         amount: rand(10.00...32.99),
-        created_at: Faker::Time.backward(100, :morning),
+        created_at: t,
+        updated_at: t,
         goal: g
       )
     end
@@ -140,10 +142,12 @@ end
   )
   if g.valid?
     rand(5..10).times do
+      t = Faker::Time.backward(100, :morning)
       Transaction.create(
         title: Faker::Commerce.product_name,
         amount: rand(50.00...82.29),
-        created_at: Faker::Time.backward(200, :morning),
+        created_at: t,
+        updated_at: t,
         goal: g
       )
     end
@@ -189,10 +193,12 @@ end
   )
   if g.valid?
     rand(2..6).times do
+      t = Faker::Time.backward(100, :morning)
       Transaction.create(
         title: Faker::Commerce.product_name,
         amount: rand(5.24...15.43),
-        created_at: Faker::Time.backward(120, :morning),
+        created_at: t,
+        updated_at: t,
         goal: g
       )
     end
